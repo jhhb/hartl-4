@@ -544,3 +544,75 @@ Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-21 21:50:19
 
 
 Started GET "/assets/rails.png" for 127.0.0.1 at 2017-08-21 21:50:19 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-22 00:22:33 -0400
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 1147ms (Views: 1146.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-22 00:22:35 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-22 00:22:35 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-22 00:22:35 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-22 00:22:35 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2017-08-22 00:22:35 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2017-08-22 00:22:35 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2017-08-22 00:22:35 -0400
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2017-08-22 00:22:35 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2017-08-22 00:22:35 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-22 00:22:35 -0400
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2017-08-22 00:22:35 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-22 00:23:21 -0400
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 104ms (Views: 103.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-22 00:23:22 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-22 00:23:22 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-22 00:23:22 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-22 00:23:22 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-22 00:23:27 -0400
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 29ms (Views: 20.4ms | ActiveRecord: 0.0ms)
