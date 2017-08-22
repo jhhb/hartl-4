@@ -2,6 +2,8 @@
 
 /* universal */
 
+$grayLight: #999;
+
 html {
 	overflow-y: scroll;
 }
@@ -20,10 +22,10 @@ textarea {
 
 .center {
 	text-align: center;
-}
 
-.center h1 {
-	margin: 0 0 1% 0;
+	h1 {
+		margin: 0 0 1% 0;
+	}
 }
 
 /* typography */
@@ -45,7 +47,7 @@ h2 {
 	margin-bottom: 30px;
 	text-align: center;
 	font-weight: normal;
-	color: #999;
+	color: $grayLight;
 }
 
 p {
@@ -65,11 +67,11 @@ p {
 	padding-top: 9px;
 	font-weight: bold;
 	line-height: 1;
-}
 
-#logo:hover {
-	color: #fff;
-	text-decoration: none;
+	&:hover {
+		color: #fff;
+		text-decoration: none;
+	}
 }
 
 /* footer */
@@ -78,27 +80,27 @@ footer {
 	margin-top: 45px;
 	padding: 5px;
 	border-top: 1px solid #eaeaea;
-	color: #999;
-}
+	color: $grayLight;
 
-footer a {
-	color: #555;
-}
+	a {
+		color: #555;
 
-footer a:hover {
-	color: #222; 
-}
+		&:hover {
+			color: #222;
+		}
+	}
 
-footer small {
-	float: left;
-}
+	small {
+		float: left;
+	}
 
-footer ul {
-	float: right;
-	list-style: none;
-}
+	ul {
+		float: right;
+		list-style: none;	
 
-footer ul li {
-	float: left;
-	margin-left: 10px;
+		li {
+			float: left;
+			margin-left: 10px;
+		}
+	}
 }

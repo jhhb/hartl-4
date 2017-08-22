@@ -485,3 +485,62 @@ Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-21 21:40:
 
 
 Started GET "/assets/rails.png" for 127.0.0.1 at 2017-08-21 21:40:14 -0400
+
+
+Started GET "/static_pages/home" for 127.0.0.1 at 2017-08-21 21:49:31 -0400
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 23ms
+
+ActionView::Template::Error (Invalid CSS after "		color #fff": expected "{", was ";"
+  (in /Users/jamesboyle/Desktop/hartl/sample_app/app/assets/stylesheets/custom.css.scss:70)):
+    2: <html>
+    3: <head>
+    4: <title><%= full_title(yield(:title)) %></title>
+    5:   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    6:   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    7:   <%= csrf_meta_tags %>
+    8:   <%= render 'layouts/shim' %>
+  app/assets/stylesheets/custom.css.scss:70
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb__2635248105152610419_70166957473280'
+
+
+  Rendered /Users/jamesboyle/.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.5ms)
+  Rendered /Users/jamesboyle/.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (30.4ms)
+  Rendered /Users/jamesboyle/.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (77.5ms)
+
+
+Started GET "/static_pages/home" for 127.0.0.1 at 2017-08-21 21:50:18 -0400
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 779ms (Views: 778.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-21 21:50:19 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-21 21:50:19 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2017-08-21 21:50:19 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-21 21:50:19 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2017-08-21 21:50:19 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2017-08-21 21:50:19 -0400
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2017-08-21 21:50:19 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-21 21:50:19 -0400
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2017-08-21 21:50:19 -0400
