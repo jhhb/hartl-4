@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
-	before_save { self.email = email.downcase }
+	before_save { email.downcase! } # alternative syntax: { self.email = email.downcase }
 	validates :name, presence: true, length: { maximum: 50 } 
 	# optional regex that is tested against user-passed email 
-	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(?:\.[a-z\d\-]+)*\.[a-z]+\z/i
+
 	# case_insensitive uniqueness check.
 	# Other steps: Need to add unique index to database and before_save on email
 	validates :email, 
