@@ -1,0 +1,1919 @@
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddRememberTokenToUsers (20170828162121)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (6.7ms)[0m  [1mALTER TABLE "users" ADD COLUMN "remember_token" character varying(255)[0m
+  [1m[35m (6.1ms)[0m  CREATE INDEX "index_users_on_remember_token" ON "users" ("remember_token")
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20170828162121"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (246.8ms)[0m  [1mDROP DATABASE IF EXISTS "sample_app_test"[0m
+  [1m[35m (372.9ms)[0m  CREATE DATABASE "sample_app_test" ENCODING = 'unicode'
+  [1m[36mSQL (1.5ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (8.1ms)[0m  CREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "created_at" timestamp, "updated_at" timestamp, "password_digest" character varying(255), "remember_token" character varying(255)) 
+  [1m[36m (2.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (1.1ms)[0m  CREATE INDEX "index_users_on_remember_token" ON "users" USING btree ("remember_token")
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170828162121')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170824151116')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170824195621')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170824200818')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-29 21:35:53 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (2.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (5.8ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  [1m[35mUser Load (4.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (18.0ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 3378ms (Views: 3370.5ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/assets/bootstrap-affix.js?body=1" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2017-08-29 21:35:57 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-29 21:36:03 -0400
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (55.1ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 87ms (Views: 85.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/help" for 127.0.0.1 at 2017-08-29 21:36:04 -0400
+Processing by StaticPagesController#help as HTML
+  Rendered static_pages/help.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[35mUser Load (9.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (11.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 33ms (Views: 23.2ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-29 21:36:06 -0400
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (2.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 27ms (Views: 24.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2017-08-29 21:36:08 -0400
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (7.9ms)
+  Rendered users/new.html.erb within layouts/application (64.8ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (19.2ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 123ms (Views: 118.9ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-08-29 21:36:18 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/n5dFZIqcmZ5vIjkEfWDksZ80x1TMfD5QF55S+B5gtw=", "user"=>{"name"=>"J", "email"=>"jhhboyle@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('jhhboyle@gmail.com') LIMIT 1
+  [1m[36mSQL (7.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", Wed, 30 Aug 2017 01:36:18 UTC +00:00], ["email", "jhhboyle@gmail.com"], ["name", "J"], ["password_digest", "$2a$10$u816bO792Ru920Di6zKEsOsH6KXbkW8N6CbjRSIQ2CwwYbqPtO9hK"], ["remember_token", "ad6175091d5b8442038bd68e90ab514c0542c46d"], ["updated_at", Wed, 30 Aug 2017 01:36:18 UTC +00:00]]
+  [1m[35m (1.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 106ms (ActiveRecord: 10.1ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-08-29 21:36:18 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  Rendered users/show.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (2.9ms)
+  Rendered layouts/_footer.html.erb (3.3ms)
+Completed 200 OK in 89ms (Views: 85.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 21:36:18 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-29 21:36:18 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 21:36:18 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 21:36:18 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 21:36:18 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 21:36:18 -0400
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-08-29 21:36:24 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  Rendered users/show.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 12ms (Views: 9.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 21:36:24 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 21:36:24 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-29 21:36:24 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 21:36:24 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 21:36:24 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 21:36:24 -0400
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-08-29 21:36:26 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  Rendered users/show.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 16ms (Views: 14.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 21:36:26 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 21:36:26 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 21:36:27 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-29 21:36:27 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 21:36:27 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 21:36:27 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-29 21:36:29 -0400
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 22ms (Views: 21.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2017-08-29 21:36:29 -0400
+
+
+Started GET "/help" for 127.0.0.1 at 2017-08-29 21:36:30 -0400
+Processing by StaticPagesController#help as HTML
+  Rendered static_pages/help.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[35mUser Load (5.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (6.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 25ms (Views: 17.7ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/help" for 127.0.0.1 at 2017-08-29 21:36:33 -0400
+Processing by StaticPagesController#help as HTML
+  Rendered static_pages/help.html.erb within layouts/application (0.0ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/help" for 127.0.0.1 at 2017-08-29 21:36:35 -0400
+Processing by StaticPagesController#help as HTML
+  Rendered static_pages/help.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 21:36:35 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-29 21:36:35 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 21:36:35 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 21:36:35 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 21:36:35 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 21:36:35 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-29 21:36:36 -0400
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 21ms (Views: 19.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2017-08-29 21:36:36 -0400
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-08-29 21:37:04 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "2"]]
+  Rendered users/show.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 17ms (Views: 14.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 21:37:04 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 21:37:04 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 21:37:04 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 21:37:04 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-29 21:37:04 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 21:37:04 -0400
+
+
+Started GET "/users/3" for 127.0.0.1 at 2017-08-29 21:37:08 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "3"]]
+Completed 404 Not Found in 1ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with id=3):
+  app/controllers/users_controller.rb:17:in `show'
+
+
+  Rendered /Users/jamesboyle/.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/jamesboyle/.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/jamesboyle/.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /Users/jamesboyle/.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.7ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-08-29 21:37:13 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  Rendered users/show.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 21:37:13 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 21:37:13 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 21:37:13 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 21:37:13 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-29 21:37:13 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 21:37:13 -0400
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-08-29 21:38:03 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  Rendered users/show.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 27ms (Views: 11.7ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 21:38:03 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 21:38:03 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 21:38:03 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 21:38:03 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-29 21:38:03 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 21:38:03 -0400
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-08-29 21:38:40 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  Rendered users/show.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 21:38:40 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 21:38:40 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 21:38:40 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 21:38:40 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 21:38:40 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-29 21:38:40 -0400
+
+
+Started GET "/signin" for 127.0.0.1 at 2017-08-29 21:38:44 -0400
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (3.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 22ms (Views: 20.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2017-08-29 21:38:47 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/n5dFZIqcmZ5vIjkEfWDksZ80x1TMfD5QF55S+B5gtw=", "session"=>{"email"=>"testemail@email.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'testemail@email.com' LIMIT 1
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 21:38:47 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 21:38:47 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 21:38:47 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 21:38:47 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 21:38:47 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-29 21:38:47 -0400
+
+
+Started POST "/sessions" for 127.0.0.1 at 2017-08-29 21:38:53 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/n5dFZIqcmZ5vIjkEfWDksZ80x1TMfD5QF55S+B5gtw=", "session"=>{"email"=>"testemail@email.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'testemail@email.com' LIMIT 1
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 16ms (Views: 14.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 21:38:53 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 21:38:53 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 21:38:53 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-29 21:38:53 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 21:38:53 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 21:38:53 -0400
+
+
+Started POST "/sessions" for 127.0.0.1 at 2017-08-29 21:38:59 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/n5dFZIqcmZ5vIjkEfWDksZ80x1TMfD5QF55S+B5gtw=", "session"=>{"email"=>"testemail@email.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'testemail@email.com' LIMIT 1
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 15ms (Views: 13.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 21:38:59 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 21:38:59 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 21:38:59 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 21:38:59 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 21:38:59 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-29 21:38:59 -0400
+
+
+Started POST "/sessions" for 127.0.0.1 at 2017-08-29 21:39:14 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/n5dFZIqcmZ5vIjkEfWDksZ80x1TMfD5QF55S+B5gtw=", "session"=>{"email"=>"jboyle@bowdoin.edu", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'jboyle@bowdoin.edu' LIMIT 1
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 15ms (Views: 12.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 21:39:14 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 21:39:14 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 21:39:14 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 21:39:14 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-29 21:39:14 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 21:39:14 -0400
+
+
+Started POST "/sessions" for 127.0.0.1 at 2017-08-29 21:39:22 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/n5dFZIqcmZ5vIjkEfWDksZ80x1TMfD5QF55S+B5gtw=", "session"=>{"email"=>"jhhboyle@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'jhhboyle@gmail.com' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  UPDATE "users" SET "remember_token" = $1, "updated_at" = $2 WHERE "users"."id" = 2  [["remember_token", "08190eafa779eed814708f4b48a92e7136d5bb30"], ["updated_at", Wed, 30 Aug 2017 01:39:22 UTC +00:00]]
+  [1m[36m (5.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 120ms (ActiveRecord: 7.5ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-08-29 21:39:22 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "2"]]
+  Rendered users/show.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '08190eafa779eed814708f4b48a92e7136d5bb30' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 21:39:22 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 21:39:22 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-29 21:39:22 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 21:39:22 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 21:39:22 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 21:39:22 -0400
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2017-08-29 21:39:28 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/n5dFZIqcmZ5vIjkEfWDksZ80x1TMfD5QF55S+B5gtw="}
+Completed 500 Internal Server Error in 1ms
+
+ActionView::MissingTemplate (Missing template sessions/destroy, application/destroy with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/Users/jamesboyle/Desktop/hartl/sample_app/app/views"
+):
+  actionpack (4.0.8) lib/action_view/path_set.rb:46:in `find'
+  actionpack (4.0.8) lib/action_view/lookup_context.rb:122:in `find'
+  actionpack (4.0.8) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionpack (4.0.8) lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  actionpack (4.0.8) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionpack (4.0.8) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.8) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.8) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.8) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.8) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.8) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.8) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.8) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.8) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.8) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.8) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/jamesboyle/.rvm/rubies/ruby-2.0.0-p648/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.8) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.8) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.8) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.8) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.8) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.8) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.8) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.8) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.8) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.8) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.8) lib/active_support/callbacks.rb:403:in `_run__3351596589526694282__process_action__callbacks'
+  activesupport (4.0.8) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.8) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.8) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.8) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.8) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.8) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.8) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.8) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.8) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.0.8) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.8) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.8) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.8) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.8) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.8) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.8) lib/action_dispatch/routing/route_set.rb:82:in `call'
+  actionpack (4.0.8) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.0.8) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.0.8) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.8) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.8) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.8) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  rack (1.5.5) lib/rack/etag.rb:23:in `call'
+  rack (1.5.5) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.5) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.8) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.8) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.8) lib/active_record/migration.rb:373:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.8) lib/active_support/callbacks.rb:373:in `_run__927480997877757658__call__callbacks'
+  activesupport (4.0.8) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.8) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.0.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.0.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.0.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.8) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.8) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.8) lib/rails/engine.rb:511:in `call'
+  railties (4.0.8) lib/rails/application.rb:97:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/jamesboyle/.rvm/rubies/ruby-2.0.0-p648/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/jamesboyle/.rvm/rubies/ruby-2.0.0-p648/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/jamesboyle/.rvm/rubies/ruby-2.0.0-p648/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/jamesboyle/.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-29 21:55:13 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '08190eafa779eed814708f4b48a92e7136d5bb30' LIMIT 1
+  Rendered layouts/_header.html.erb (22.2ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 173ms (Views: 168.6ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/assets/bootstrap-affix.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2017-08-29 21:55:14 -0400
+
+
+Started GET "/signup" for 127.0.0.1 at 2017-08-29 21:55:16 -0400
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (3.0ms)
+  Rendered users/new.html.erb within layouts/application (20.1ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  [1m[36mUser Load (6.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '08190eafa779eed814708f4b48a92e7136d5bb30' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (14.8ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 56ms (Views: 47.9ms | ActiveRecord: 6.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/n5dFZIqcmZ5vIjkEfWDksZ80x1TMfD5QF55S+B5gtw=", "user"=>{"name"=>"new guy", "email"=>"new@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (1.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('new@email.com') LIMIT 1[0m
+  [1m[35mSQL (9.7ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", Wed, 30 Aug 2017 01:55:29 UTC +00:00], ["email", "new@email.com"], ["name", "new guy"], ["password_digest", "$2a$10$zw4xvUGjgQXpUm2LSwYgtegUKOE87T1bYGExR9abeHWew4gxVqo6u"], ["remember_token", "d2840b3b67e7c775c073e44336cfc994581b0a90"], ["updated_at", Wed, 30 Aug 2017 01:55:29 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mUPDATE "users" SET "remember_token" = $1, "updated_at" = $2 WHERE "users"."id" = 3[0m  [["remember_token", "49ad90c35f45cae0ced26f6a44b10f8ff25e01f9"], ["updated_at", Wed, 30 Aug 2017 01:55:29 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 160ms (ActiveRecord: 13.8ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '49ad90c35f45cae0ced26f6a44b10f8ff25e01f9' LIMIT 1
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 17ms (Views: 14.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+
+
+Started GET "/assets/bootstrap-affix.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-29 21:55:29 -0400
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2017-08-29 21:55:50 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/n5dFZIqcmZ5vIjkEfWDksZ80x1TMfD5QF55S+B5gtw="}
+Completed 500 Internal Server Error in 1ms
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/helpers/sessions_helper.rb:11:in `sign_out'
+  app/controllers/sessions_controller.rb:7:in `destroy'
+
+
+  Rendered /Users/jamesboyle/.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/jamesboyle/.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.7ms)
+  Rendered /Users/jamesboyle/.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.6ms)
+  Rendered /Users/jamesboyle/.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.7ms)
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2017-08-29 21:56:49 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/n5dFZIqcmZ5vIjkEfWDksZ80x1TMfD5QF55S+B5gtw="}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '49ad90c35f45cae0ced26f6a44b10f8ff25e01f9' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (3.2ms)[0m  UPDATE "users" SET "remember_token" = $1, "updated_at" = $2 WHERE "users"."id" = 3  [["remember_token", "58b50a30a5c020ad3c145ca08fe0578fc5937761"], ["updated_at", Wed, 30 Aug 2017 01:56:49 UTC +00:00]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 33ms
+
+ArgumentError (wrong number of arguments (0 for 1..2)):
+  app/helpers/sessions_helper.rb:17:in `sign_out'
+  app/controllers/sessions_controller.rb:7:in `destroy'
+
+
+  Rendered /Users/jamesboyle/.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /Users/jamesboyle/.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (29.3ms)
+  Rendered /Users/jamesboyle/.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/jamesboyle/.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (41.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-29 21:56:54 -0400
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '49ad90c35f45cae0ced26f6a44b10f8ff25e01f9' LIMIT 1
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 121ms (Views: 119.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 21:56:54 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 21:56:54 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 21:56:54 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 21:56:54 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 21:56:54 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2017-08-29 21:56:54 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2017-08-29 21:56:54 -0400
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2017-08-29 21:56:54 -0400
+
+
+Started GET "/assets/bootstrap-affix.js?body=1" for 127.0.0.1 at 2017-08-29 21:56:54 -0400
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2017-08-29 21:56:54 -0400
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2017-08-29 21:56:54 -0400
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2017-08-29 21:56:54 -0400
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2017-08-29 21:56:54 -0400
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2017-08-29 21:56:54 -0400
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2017-08-29 21:56:54 -0400
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2017-08-29 21:56:54 -0400
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2017-08-29 21:56:54 -0400
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2017-08-29 21:56:54 -0400
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2017-08-29 21:56:54 -0400
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2017-08-29 21:56:54 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2017-08-29 21:56:54 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2017-08-29 21:56:55 -0400
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2017-08-29 21:56:55 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2017-08-29 21:56:55 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-29 21:56:55 -0400
+
+
+Started GET "/signup" for 127.0.0.1 at 2017-08-29 21:56:56 -0400
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (6.5ms)
+  Rendered users/new.html.erb within layouts/application (24.8ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  [1m[36mUser Load (10.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '49ad90c35f45cae0ced26f6a44b10f8ff25e01f9' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (41.3ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 122ms (Views: 110.6ms | ActiveRecord: 10.3ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-08-29 21:57:06 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/n5dFZIqcmZ5vIjkEfWDksZ80x1TMfD5QF55S+B5gtw=", "user"=>{"name"=>"asdfsa", "email"=>"new@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[35m (8.1ms)[0m  BEGIN
+  [1m[36mUser Exists (2.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('new@gmail.com') LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  Rendered shared/_error_messages.html.erb (1.7ms)
+  Rendered users/new.html.erb within layouts/application (6.8ms)
+  Rendered layouts/_shim.html.erb (0.2ms)
+  [1m[36mUser Load (3.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '49ad90c35f45cae0ced26f6a44b10f8ff25e01f9' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (5.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 157ms (Views: 32.8ms | ActiveRecord: 13.8ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 21:57:06 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 21:57:06 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 21:57:06 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 21:57:06 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 21:57:06 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:06 -0400
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:06 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:06 -0400
+
+
+Started GET "/assets/bootstrap-affix.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:06 -0400
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:06 -0400
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:06 -0400
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:06 -0400
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:06 -0400
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:06 -0400
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:06 -0400
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:06 -0400
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:06 -0400
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:06 -0400
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:06 -0400
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:06 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:06 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:06 -0400
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:06 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:06 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:06 -0400
+
+
+Started POST "/users" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/n5dFZIqcmZ5vIjkEfWDksZ80x1TMfD5QF55S+B5gtw=", "user"=>{"name"=>"asdfsa", "email"=>"new@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('new@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", Wed, 30 Aug 2017 01:57:15 UTC +00:00], ["email", "new@gmail.com"], ["name", "asdfsa"], ["password_digest", "$2a$10$xW7A2QstXqSEUOfW0ljZFO9C5.R6..ZG1fBO4OgOqxLnB8BF08/qm"], ["remember_token", "053c4e7744a54b8e368bc479192fe1e9a1608cc4"], ["updated_at", Wed, 30 Aug 2017 01:57:15 UTC +00:00]]
+  [1m[36m (4.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "users" SET "remember_token" = $1, "updated_at" = $2 WHERE "users"."id" = 4[0m  [["remember_token", "72e37e6c0083365a14e283f6ce5698ad19759e38"], ["updated_at", Wed, 30 Aug 2017 01:57:15 UTC +00:00]]
+  [1m[35m (2.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 133ms (ActiveRecord: 9.5ms)
+
+
+Started GET "/users/4" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "4"]]
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '72e37e6c0083365a14e283f6ce5698ad19759e38' LIMIT 1
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 19ms (Views: 15.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+
+
+Started GET "/assets/bootstrap-affix.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-29 21:57:15 -0400
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2017-08-29 21:57:19 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/n5dFZIqcmZ5vIjkEfWDksZ80x1TMfD5QF55S+B5gtw="}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '72e37e6c0083365a14e283f6ce5698ad19759e38' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "users" SET "remember_token" = $1, "updated_at" = $2 WHERE "users"."id" = 4[0m  [["remember_token", "1108980ca5e8c13158a2896e15f25cfd7bdab9be"], ["updated_at", Wed, 30 Aug 2017 01:57:19 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Completed 500 Internal Server Error in 6ms
+
+ArgumentError (wrong number of arguments (0 for 1..2)):
+  app/helpers/sessions_helper.rb:17:in `sign_out'
+  app/controllers/sessions_controller.rb:7:in `destroy'
+
+
+  Rendered /Users/jamesboyle/.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.7ms)
+  Rendered /Users/jamesboyle/.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
+  Rendered /Users/jamesboyle/.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.2ms)
+  Rendered /Users/jamesboyle/.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/actionpack-4.0.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (29.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-29 21:59:11 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (17.7ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 207ms (Views: 204.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 21:59:11 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 21:59:11 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 21:59:11 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 21:59:11 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 21:59:11 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2017-08-29 21:59:11 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2017-08-29 21:59:11 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2017-08-29 21:59:11 -0400
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2017-08-29 21:59:11 -0400
+
+
+Started GET "/assets/bootstrap-affix.js?body=1" for 127.0.0.1 at 2017-08-29 21:59:11 -0400
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2017-08-29 21:59:11 -0400
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2017-08-29 21:59:11 -0400
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2017-08-29 21:59:11 -0400
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2017-08-29 21:59:11 -0400
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2017-08-29 21:59:11 -0400
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2017-08-29 21:59:11 -0400
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2017-08-29 21:59:11 -0400
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2017-08-29 21:59:11 -0400
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2017-08-29 21:59:11 -0400
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2017-08-29 21:59:11 -0400
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2017-08-29 21:59:11 -0400
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2017-08-29 21:59:11 -0400
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2017-08-29 21:59:11 -0400
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2017-08-29 21:59:12 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2017-08-29 21:59:12 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-29 21:59:12 -0400
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2017-08-29 21:59:12 -0400
+
+
+Started GET "/signup" for 127.0.0.1 at 2017-08-29 21:59:57 -0400
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (1.8ms)
+  Rendered users/new.html.erb within layouts/application (17.8ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 41ms (Views: 32.6ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-08-29 22:00:09 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q+zYwpTJ+rrrDm+l5UDjeW02ZNUZy3JFZIcAa+aCxkw=", "user"=>{"name"=>"jew", "email"=>"jews@jew.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('jews@jew.com') LIMIT 1[0m
+  [1m[35mSQL (3.4ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", Wed, 30 Aug 2017 02:00:09 UTC +00:00], ["email", "jews@jew.com"], ["name", "jew"], ["password_digest", "$2a$10$0Btdl5zCUHGPaKKkt9gD4.BwnNK.sNOfglXb2BDo0qqsj/B5IEM3K"], ["remember_token", "6352b418ed403550001954be9ddbf70741f026b5"], ["updated_at", Wed, 30 Aug 2017 02:00:09 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.3ms)[0m  [1mUPDATE "users" SET "remember_token" = $1, "updated_at" = $2 WHERE "users"."id" = 5[0m  [["remember_token", "d3047375207d1d12d75ac36b2bd31ce2d43266f1"], ["updated_at", Wed, 30 Aug 2017 02:00:09 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 96ms (ActiveRecord: 7.4ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2017-08-29 22:00:09 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "5"]]
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'd3047375207d1d12d75ac36b2bd31ce2d43266f1' LIMIT 1
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 43ms (Views: 14.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:09 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:09 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:09 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:09 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:09 -0400
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2017-08-29 22:00:12 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"q+zYwpTJ+rrrDm+l5UDjeW02ZNUZy3JFZIcAa+aCxkw="}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'd3047375207d1d12d75ac36b2bd31ce2d43266f1' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "remember_token" = $1, "updated_at" = $2 WHERE "users"."id" = 5[0m  [["remember_token", "bebba65d3aa3b33024b3d371d2b952b0869c993d"], ["updated_at", Wed, 30 Aug 2017 02:00:12 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-29 22:00:12 -0400
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:12 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:12 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:12 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:12 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:12 -0400
+
+
+Started GET "/signin" for 127.0.0.1 at 2017-08-29 22:00:15 -0400
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2017-08-29 22:00:21 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q+zYwpTJ+rrrDm+l5UDjeW02ZNUZy3JFZIcAa+aCxkw=", "session"=>{"email"=>"jew@jew.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'jew@jew.com' LIMIT 1[0m
+  Rendered sessions/new.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 19ms (Views: 16.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:21 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:21 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:21 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:21 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:21 -0400
+
+
+Started POST "/sessions" for 127.0.0.1 at 2017-08-29 22:00:29 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q+zYwpTJ+rrrDm+l5UDjeW02ZNUZy3JFZIcAa+aCxkw=", "session"=>{"email"=>"jew@jews.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'jew@jews.com' LIMIT 1[0m
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:29 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:29 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:29 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:29 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:29 -0400
+
+
+Started GET "/signup" for 127.0.0.1 at 2017-08-29 22:00:32 -0400
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (0.8ms)
+  Rendered users/new.html.erb within layouts/application (8.2ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 21ms (Views: 20.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:32 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:32 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:32 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:32 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:32 -0400
+
+
+Started POST "/users" for 127.0.0.1 at 2017-08-29 22:00:44 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q+zYwpTJ+rrrDm+l5UDjeW02ZNUZy3JFZIcAa+aCxkw=", "user"=>{"name"=>"HI there", "email"=>"yoyo@yo.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('yoyo@yo.com') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", Wed, 30 Aug 2017 02:00:44 UTC +00:00], ["email", "yoyo@yo.com"], ["name", "HI there"], ["password_digest", "$2a$10$M6fBpaXwwrUevZ8UPhB1UeIFGxx0NZ5WqCXQPoH1D0AHI5yp7usFa"], ["remember_token", "fa9d8a51665efe32e2836e5ce08af7354eba4ce3"], ["updated_at", Wed, 30 Aug 2017 02:00:44 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "users" SET "remember_token" = $1, "updated_at" = $2 WHERE "users"."id" = 6[0m  [["remember_token", "cd04ab782493eec5d6f2f7174ec0ec4aab9cce50"], ["updated_at", Wed, 30 Aug 2017 02:00:44 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/6
+Completed 302 Found in 81ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2017-08-29 22:00:44 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "6"]]
+  Rendered users/show.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'cd04ab782493eec5d6f2f7174ec0ec4aab9cce50' LIMIT 1
+  Rendered layouts/_header.html.erb (26.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 41ms (Views: 39.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:44 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:44 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:44 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:44 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:44 -0400
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2017-08-29 22:00:46 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"q+zYwpTJ+rrrDm+l5UDjeW02ZNUZy3JFZIcAa+aCxkw="}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'cd04ab782493eec5d6f2f7174ec0ec4aab9cce50' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "remember_token" = $1, "updated_at" = $2 WHERE "users"."id" = 6[0m  [["remember_token", "14c06347e02ebb8cf553a8ad0e0307865ed24769"], ["updated_at", Wed, 30 Aug 2017 02:00:46 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-29 22:00:46 -0400
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:46 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:46 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:46 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:46 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:46 -0400
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2017-08-29 22:00:46 -0400
+
+
+Started GET "/signup" for 127.0.0.1 at 2017-08-29 22:00:47 -0400
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered users/new.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 46ms (Views: 45.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2017-08-29 22:00:50 -0400
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 15ms (Views: 14.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2017-08-29 22:00:56 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q+zYwpTJ+rrrDm+l5UDjeW02ZNUZy3JFZIcAa+aCxkw=", "session"=>{"email"=>"yoyo@yo.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'yoyo@yo.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "remember_token" = $1, "updated_at" = $2 WHERE "users"."id" = 6  [["remember_token", "b59ddcae01fa25fe3a8a5018b8cad2e61ff7f36e"], ["updated_at", Wed, 30 Aug 2017 02:00:56 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/6
+Completed 302 Found in 79ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2017-08-29 22:00:56 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "6"]]
+  Rendered users/show.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'b59ddcae01fa25fe3a8a5018b8cad2e61ff7f36e' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 15ms (Views: 12.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:56 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:56 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:56 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:56 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:56 -0400
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2017-08-29 22:00:59 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"q+zYwpTJ+rrrDm+l5UDjeW02ZNUZy3JFZIcAa+aCxkw="}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'b59ddcae01fa25fe3a8a5018b8cad2e61ff7f36e' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "remember_token" = $1, "updated_at" = $2 WHERE "users"."id" = 6  [["remember_token", "76457583e9f587539b747de273f0cf43ee04b0e0"], ["updated_at", Wed, 30 Aug 2017 02:00:59 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-29 22:00:59 -0400
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:59 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:59 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:59 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:59 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 22:00:59 -0400
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2017-08-29 22:00:59 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 22:01:04 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 22:01:04 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 22:01:04 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 22:01:04 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 22:01:04 -0400
+  [1m[36m (246.3ms)[0m  [1mDROP DATABASE IF EXISTS "sample_app_test"[0m
+  [1m[35m (374.7ms)[0m  CREATE DATABASE "sample_app_test" ENCODING = 'unicode'
+  [1m[36mSQL (2.0ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (11.9ms)[0m  CREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "created_at" timestamp, "updated_at" timestamp, "password_digest" character varying(255), "remember_token" character varying(255)) 
+  [1m[36m (1.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (1.5ms)[0m  CREATE INDEX "index_users_on_remember_token" ON "users" USING btree ("remember_token")
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170828162121')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170824151116')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170824195621')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170824200818')[0m
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-29 22:04:01 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (14.4ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 194ms (Views: 190.7ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 22:04:01 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 22:04:01 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 22:04:01 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-29 22:04:01 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 22:04:01 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 22:04:01 -0400
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2017-08-29 22:04:01 -0400
+
+
+Started GET "/signin" for 127.0.0.1 at 2017-08-29 22:04:03 -0400
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (9.3ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 49ms (Views: 47.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2017-08-29 22:04:10 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q+zYwpTJ+rrrDm+l5UDjeW02ZNUZy3JFZIcAa+aCxkw=", "session"=>{"email"=>"testemail@email.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'testemail@email.com' LIMIT 1
+  Rendered sessions/new.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 20ms (Views: 15.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 22:04:10 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 22:04:10 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 22:04:10 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-29 22:04:10 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 22:04:10 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 22:04:10 -0400
+
+
+Started GET "/signin" for 127.0.0.1 at 2017-08-29 22:04:26 -0400
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 22:04:27 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 22:04:27 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 22:04:27 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 22:04:27 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 22:04:27 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-29 22:04:27 -0400
+
+
+Started GET "/signup" for 127.0.0.1 at 2017-08-29 22:04:28 -0400
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (2.9ms)
+  Rendered users/new.html.erb within layouts/application (15.5ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'da39a3ee5e6b4b0d3255bfef95601890afd80709' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 36ms (Views: 32.6ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-08-29 22:04:44 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q+zYwpTJ+rrrDm+l5UDjeW02ZNUZy3JFZIcAa+aCxkw=", "user"=>{"name"=>"user@example.com", "email"=>"user@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mSQL (4.3ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", Wed, 30 Aug 2017 02:04:44 UTC +00:00], ["email", "user@example.com"], ["name", "user@example.com"], ["password_digest", "$2a$10$Q4cB4xnVfCEq/N5qZsQS0O3X8gD9Lbhoqu3T00/kFLU/id/DK93JS"], ["remember_token", "448b9e402ab679cbc14a503da34c2face3da5a8d"], ["updated_at", Wed, 30 Aug 2017 02:04:44 UTC +00:00]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mUPDATE "users" SET "remember_token" = $1, "updated_at" = $2 WHERE "users"."id" = 7[0m  [["remember_token", "97797d7bd2a64a21c7b597ce32ef4201421cd00b"], ["updated_at", Wed, 30 Aug 2017 02:04:44 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/7
+Completed 302 Found in 93ms (ActiveRecord: 8.3ms)
+
+
+Started GET "/users/7" for 127.0.0.1 at 2017-08-29 22:04:44 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "7"]]
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '97797d7bd2a64a21c7b597ce32ef4201421cd00b' LIMIT 1
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 17ms (Views: 14.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2017-08-29 22:04:44 -0400
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2017-08-29 22:04:44 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2017-08-29 22:04:44 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2017-08-29 22:04:44 -0400
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2017-08-29 22:04:44 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2017-08-29 22:04:44 -0400

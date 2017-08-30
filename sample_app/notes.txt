@@ -1,0 +1,54 @@
+Chapter 6 
+
+bundle exec rake db:rollback to rollback (obviously)
+
+rails c --sandbox
+
+Model.create runs Model.new and then Model.save and returns the new instance, whereas Model.new returns true or false
+
+Reload reloads a value from a databse. You can set a value temporarily but reload it again from the database to reset it back to the original. 
+
+Can update attributes by setting and saving, or by update_attributes or update_attribute
+
+bundle exec rake test:prepare
+	- ensures that the dev db is reflected in test
+
+respond_to checks that an object will respond to a given method
+
+You can write validates with or without parentheses
+
+By adding a validation, you can then do
+	User.new  
+	User.save 
+	User.valid?
+
+	To new the user, save it and see if it saves, and finally check if it is valid
+
+	If invalid,
+		User.errors
+
+	to log errors
+	
+
+Because a user can make multiple requests for the same email registration, you need to ACTUALLY prevent duplication / enforce uniqueness by checking uniqueness of a database index. 
+
+
+specify is a synonym for it
+
+- let provides a convenient way to define local variables inside of functions. It also memoizes the object, so you dont have to make multiple calls 
+
+
+Questions
+	-What does reload do?
+	-What does respond_to do?
+	-What does subject do (in rspec?)
+
+
+----
+Chapter 7
+----
+
+any? is opposite of empty?
+
+object.errors.full_messages
+
